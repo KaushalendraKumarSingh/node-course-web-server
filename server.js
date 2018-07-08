@@ -27,7 +27,7 @@ app.use(express.static(__dirname+'/public'));//the wrapper function
 //up: serves the directory 'public'
 
 hbs.registerHelper('getCurrentYear',()=>{
-  return new Date().getFullYear()+'hi';
+  return new Date().getFullYear();
 })
 
 hbs.registerHelper('screamIt',(text)=>{
@@ -58,6 +58,13 @@ app.get('/about',(req,res)=>{
     welcomeMessage : 'Hi.only.'
   })
 })
+app.get('/project',(req,res)=>{
+  res.render('project.hbs',{
+    pageTitle:"Project Lies Here",
+    welcomeMessage:"You are on your own :0"
+  })
+  })
+
 
 app.get('/bad',(req,res)=>{
   res.send({
